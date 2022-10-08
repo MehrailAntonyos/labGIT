@@ -1,0 +1,16 @@
+<div class="container mx-5">
+    <div class="card mx-5" style="width: 18rem;">
+        <img src="{{prd?.img}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p >id: {{id}}</p>
+            <p class="text-primary">Name: {{prd?.name}}</p>
+            <p class="card-text">Price: {{prd?.price|currency:"EUR"}}</p>
+            <p class="card-text" [ngSwitch]="prd?.qty">
+                <span class="badge rounded-pill bg-danger" *ngSwitchCase="0">OUT of Stock</span>
+                <span class="badge rounded-pill bg-warning" *ngSwitchCase="1">Last Item in Stock</span>
+                <span class="badge rounded-pill bg-secondary" *ngSwitchCase="2">{{prd?.qty}} items in stock </span>
+                <span class="badge rounded-pill bg-primary" *ngSwitchDefault>{{prd?.qty}} items in stock </span>
+            </p>
+        </div>
+    </div>
+</div>

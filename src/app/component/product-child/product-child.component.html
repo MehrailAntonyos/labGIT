@@ -1,0 +1,38 @@
+<div class="row mt-5 justify-content-center">
+    <div class="container m-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Items In Stock</th>
+                    <th scope="col">Add to cart</th>
+                    <th scope="col">Details</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let prd of FilterList">
+                <tr>
+                    <td>
+                        <h5 class="card-title">{{prd.id}}</h5>
+                    </td>
+                    <td>
+                        <p class="card-title">{{prd.name}}</p>
+                    </td>
+                    <td><img [src]="prd.img" class="card-img-top" /></td>
+                    <td> <p class="card-text">{{prd.price|currency:"EUR"}}</p></td>
+                    <td><p class="card-text" [ngSwitch]="prd.qty">
+                        <span class="badge rounded-pill bg-danger" *ngSwitchCase="0">OUT of Stock</span>
+                        <span class="badge rounded-pill bg-warning" *ngSwitchCase="1">Last Item in Stock</span>
+                        <span class="badge rounded-pill bg-secondary" *ngSwitchCase="2">{{prd.qty}} items in stock </span>
+                        <span class="badge rounded-pill bg-primary" *ngSwitchDefault>{{prd.qty}} items in stock </span>
+                    </p></td>
+                    <td><a class="btn btn-outline-success" [ngClass]="{'disabled': prd.qty==0}"
+                        (click)="addToCart(prd.id,prd.price)">Add to cart</a></td>
+                    <td><button class="btn btn-outline-dark" (click)="details(prd.id)">Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
