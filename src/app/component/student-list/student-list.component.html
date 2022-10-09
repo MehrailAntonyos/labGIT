@@ -1,0 +1,26 @@
+<div class="row mt-5 justify-content-center">
+    <div class="container m-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Check</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let ts of list">
+                <tr>
+                    <td>
+                        <h5 class="card-title">{{ts.id}}</h5>
+                    </td>
+                    <td>
+                        <p class="card-title">{{ts.task}}</p>
+                    </td>
+                    <td> <p class="card-text">{{ts.check}}</p></td>
+                    <!-- <td><button class="btn btn-outline-danger" (click)="Delete(ts.id)">Delete</button></td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

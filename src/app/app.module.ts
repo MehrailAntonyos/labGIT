@@ -19,6 +19,9 @@ import { MainLayoutComponent } from './component/main-layout/main-layout.compone
 import { DashbourdComponent } from './component/dashbourd/dashbourd.component';
 import { DashbourdLayoutComponent } from './component/dashbourd-layout/dashbourd-layout.component';
 import { ProductDetailsComponent } from './component/product-details/product-details.component';
+import { CreateStudentComponent } from './component/create-student/create-student.component';
+import { StudentListComponent } from "./component/student-list/student-list.component";
+import {HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,18 +35,21 @@ import { ProductDetailsComponent } from './component/product-details/product-det
     NavbarComponent,
     ProductlistComponent,
     CreateProductComponent,
+    CreateStudentComponent,
     ProductChildComponent,
     ProductParentComponent,
     MainLayoutComponent,
     DashbourdComponent,
     DashbourdLayoutComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    StudentListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-  AppRoutingModule
+  AppRoutingModule,
+  HttpClientModule,
   ],
   providers: [
     // ProductService

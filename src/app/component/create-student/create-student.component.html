@@ -1,0 +1,57 @@
+<div class="container">
+    <form class="row g-3" [formGroup]="addform" (ngSubmit)="add()" >
+      <div class="col-md-6">
+        <label for="validationCustom01" class="form-label">task</label>
+        <input type="text" class="form-control" formControlName="FirstName">
+          <div  *ngIf="addform.get('task')?.touched && addform.get('task')?.invalid">
+            <span class="text-danger" *ngIf="addform.get('task')?.errors?.['required']">must enter a task</span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">check</label>
+          <input type="checkbox" class="form-control" formControlName="LastName">
+            <div  *ngIf="addform.get('check')?.touched && addform.get('check')?.invalid">
+              <span class="text-danger" *ngIf="addform.get('check')?.errors?.['required']">must do check</span>
+            </div>
+          </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-primary" type="submit" [disabled]="addform.invalid">Submit form</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="row mt-5 justify-content-center">
+    <div class="container m-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">check</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <!-- <tbody *ngFor="let prd of list">
+                <tr>
+                    <td>
+                        <h5 class="card-title">{{prd.id}}</h5>
+                    </td>
+                    <td>
+                        <p class="card-title">{{prd.name}}</p>
+                    </td>
+                    <td><img [src]="prd.img" class="card-img-top" /></td>
+                    <td> <p class="card-text">{{prd.price|currency:"EUR"}}</p></td>
+                    <td><p class="card-text" [ngSwitch]="prd.qty">
+                        <span class="badge rounded-pill bg-danger" *ngSwitchCase="0">OUT of Stock</span>
+                        <span class="badge rounded-pill bg-warning" *ngSwitchCase="1">Last Item in Stock</span>
+                        <span class="badge rounded-pill bg-secondary" *ngSwitchCase="2">{{prd.qty}} items in stock </span>
+                        <span class="badge rounded-pill bg-primary" *ngSwitchDefault>{{prd.qty}} items in stock </span>
+                    </p></td>
+                    <td><a class="btn btn-outline-success" [ngClass]="{'disabled': prd.qty==0}"
+                        (click)="addToCart(prd.id,prd.price)">Add to cart</a></td>
+                    <td><button class="btn btn-outline-dark" (click)="details(prd.id)">Details</button></td>
+                </tr>
+            </tbody> -->
+        </table>
+    </div>
+</div>
